@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bili_app/http/core/hi_net.dart';
+import 'package:flutter_bili_app/http/core/hi_net_error.dart';
+import 'package:flutter_bili_app/http/request/test_request.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,7 +59,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _incrementCounter() async {
+    var request = TestRequest();
+    request.add('name', 'mike').add('1', '12');
+    try {
+      var result = await HiNet.getInstance().fire(request);
+      print(result);
+    } on NeedAuth catch (e) {
+      print('Error: $e');
+    } on NeedLogin catch (e) {
+      print('Error: $e');
+    } on HiNetError catch (e) {
+      print('Error: $e');
+    }
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
