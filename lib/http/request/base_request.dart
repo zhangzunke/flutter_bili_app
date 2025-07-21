@@ -40,7 +40,10 @@ abstract class BaseRequest {
     return this;
   }
 
-  Map<String, String> header = {};
+  Map<String, String> header = {
+    'course-flag': 'fa',
+    'auth-token': 'ZmEtMjAyMS0wNC0xMiAyMToyMjoyMC1mYQ==fa',
+  };
   BaseRequest addHeader(String key, String value) {
     header[key] = value;
     return this;

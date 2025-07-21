@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bili_app/http/core/hi_net.dart';
 import 'package:flutter_bili_app/http/core/hi_net_error.dart';
 import 'package:flutter_bili_app/http/request/test_request.dart';
+import 'package:flutter_bili_app/model/person.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,7 +61,19 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  void test() {
+    var person = {
+      'firstName': 'mike',
+      'lastName': 'smith',
+      'dateOfBirth': '1990-01-01T00:00:00.000Z',
+    };
+    var personJson = Person.fromJson(person);
+    print('First Name: ${personJson.firstName}');
+    print('Last Name: ${personJson.lastName}');
+  }
+
   void _incrementCounter() async {
+    test();
     var request = TestRequest();
     request.add('name', 'mike').add('1', '12');
     try {
