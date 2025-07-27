@@ -3,6 +3,8 @@ import 'package:flutter_bili_app/http/core/hi_net.dart';
 import 'package:flutter_bili_app/http/core/hi_net_error.dart';
 import 'package:flutter_bili_app/http/request/test_request.dart';
 import 'package:flutter_bili_app/model/person.dart';
+import 'package:flutter_bili_app/page/registration_page.dart';
+import 'package:flutter_bili_app/util/color.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -33,9 +35,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: white,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const RegistrationPage(),
     );
   }
 }
