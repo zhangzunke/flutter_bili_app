@@ -44,7 +44,7 @@ class _LoginInputState extends State<LoginInput> {
           children: [
             Container(
               padding: EdgeInsets.only(left: 15),
-              width: 100,
+              width: 120,
               child: Text(widget.title, style: const TextStyle(fontSize: 16)),
             ),
             _input(),

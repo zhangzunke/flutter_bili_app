@@ -3,6 +3,7 @@ import 'package:flutter_bili_app/http/core/hi_net.dart';
 import 'package:flutter_bili_app/http/core/hi_net_error.dart';
 import 'package:flutter_bili_app/http/request/test_request.dart';
 import 'package:flutter_bili_app/model/person.dart';
+import 'package:flutter_bili_app/page/login_page.dart';
 import 'package:flutter_bili_app/page/registration_page.dart';
 import 'package:flutter_bili_app/util/color.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         primarySwatch: white,
       ),
-      home: const RegistrationPage(),
+      home: const LoginPage(),
     );
   }
 }
@@ -152,4 +153,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+class BiliRoutePath {
+  final String location;
+  BiliRoutePath.home() : location = '/';
+  BiliRoutePath.detail() : location = '/detail';
 }
